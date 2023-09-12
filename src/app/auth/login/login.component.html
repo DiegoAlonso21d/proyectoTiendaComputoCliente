@@ -1,0 +1,41 @@
+<div class="fondoLogin">
+  <div class="container" id="container">
+    <div class="form-container sign-in-container">
+      <form action="#">
+        <h1>Ingresa</h1>
+        <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <span class="my-3">o usa tu cuenta</span>
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+
+        <button class="mt-5 ingresa" routerLink="/tienda">Ingresa</button>
+      </form>
+    </div>
+
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-right">
+          <h1>Bienvenido!</h1>
+          <p>Si no tiene una cuenta puede crearla aqui</p>
+          <button class="ghost" id="signUp" routerLink="/register">
+            Registrarse
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-5 irTienda">
+    <a
+      href=""
+      routerLink="/tienda"
+      class="text-center"
+      style="display: flex; justify-content: center; color: white"
+      >Ir a la Tienda</a
+    >
+  </div>
+</div>

@@ -1,0 +1,13 @@
+.carroCompras {
+  margin-top: 20rem;
+}
+
+.clear__carrito {
+  color: white;
+}
+
+.clear__carrito:hover {
+  background-color: brown;
+  color: white;
+  transition: 0.3s all ease-in-out;
+}

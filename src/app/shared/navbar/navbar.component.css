@@ -1,0 +1,14 @@
+.nav__logo {
+  cursor: pointer;
+}
+
+.user_icon,
+.exit_icon {
+  font-size: 2.7rem;
+  margin-left: 4rem;
+}
+
+.fa-user,
+.fa-right-from-bracket {
+  color: rgb(255, 187, 0);
+}
