@@ -4,10 +4,11 @@ import { CarritoComponent } from './carrito/carrito.component';
 import { TiendaComponent } from './tienda/tienda.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
+import { CarouselComponent } from './tienda/carousel/carousel.component';
 
 @NgModule({
-  declarations: [CarritoComponent, TiendaComponent],
-  exports: [CarritoComponent, TiendaComponent,SharedModule],
+  declarations: [CarritoComponent, TiendaComponent, CarouselComponent],
+  exports: [CarritoComponent, TiendaComponent,SharedModule, CarouselComponent],
   imports: [CommonModule, RouterModule, SharedModule],
 })
 export class PagesModule {}
