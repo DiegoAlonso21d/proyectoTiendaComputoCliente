@@ -9,9 +9,10 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 import { PagesComponent } from './pages/pages.component';
 import { AuthModule } from './auth/auth.module';
 import { PagesModule } from './pages/pages.module';
+import { CarouselComponent } from './carousel/carousel.component';
 
 @NgModule({
-  declarations: [AppComponent, NopagefoundComponent, PagesComponent],
+  declarations: [AppComponent, NopagefoundComponent, PagesComponent, CarouselComponent],
   imports: [BrowserModule, AppRoutingModule, AuthModule, PagesModule],
   providers: [],
   bootstrap: [AppComponent],
