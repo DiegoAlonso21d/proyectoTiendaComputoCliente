@@ -1,0 +1,70 @@
+/* Estilos generales del footer */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 30px 0;
+}
+
+.footer__content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer h2,
+.footer h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* Estilos del logo */
+.footer__logo {
+  flex: 1;
+}
+
+.footer__logo h2 {
+  font-weight: bold;
+}
+
+/* Estilos de los enlaces de navegación */
+.footer__links {
+  flex: 1;
+}
+
+.footer__nav {
+  list-style: none;
+  padding: 0;
+}
+
+.footer__nav li {
+  margin-bottom: 10px;
+}
+
+.footer__nav a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Estilos de la información de contacto */
+.footer__contact {
+  flex: 1;
+}
+
+/* Estilos de los íconos sociales */
+.footer__social {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer__social-link {
+  display: inline-block;
+  font-size: 24px;
+  margin: 0 10px;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Estilos de los íconos sociales al pasar el ratón */
+.footer__social-link:hover {
+  color: #007bff;
+}

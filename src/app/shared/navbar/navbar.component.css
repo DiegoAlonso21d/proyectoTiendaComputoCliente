@@ -1,7 +1,16 @@
 .nav__logo {
   cursor: pointer;
 }
-
+.nav__icons{
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.item__total{
+  margin-right: 15px;
+}
 .user_icon,
 .exit_icon {
   font-size: 2.7rem;
@@ -11,4 +20,32 @@
 .fa-user,
 .fa-right-from-bracket {
   color: rgb(255, 187, 0);
+}
+
+/********/
+.nav__list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding-right: 80px;
+  margin: 0;
+  font-size: 20px;
+}
+
+.nav__item {
+  margin-right: 60px; /* Ajusta el margen derecho según sea necesario */
+}
+
+.nav__item:last-child {
+  margin-right: 0; /* Elimina el margen derecho del último elemento */
+}
+
+.nav__item a {
+  text-decoration: none;
+  color: rgb(255, 187, 0);
+  font-weight: bold;
+}
+
+.nav__item a:hover {
+  color: rgb(146, 108, 2);
 }
