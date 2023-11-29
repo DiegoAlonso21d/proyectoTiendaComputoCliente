@@ -1,16 +1,23 @@
 <div class="fondoLogin">
   <div class="container" id="container">
     <div class="form-container sign-in-container">
-      <form action="#">
+      <form [formGroup]="registerForm">
         <h1 class="mb-4">Registrate</h1>
 
         <span class="my-3">Ingrese sus datos</span>
-        <input type="text" placeholder="Nombres" />
-        <input type="text" placeholder="Telefono" />
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
+        <input type="text" formControlName="nombres" placeholder="Nombres" />
 
-        <button class="mt-5 ingresa" routerLink="/login">Registrar</button>
+        <input type="text" formControlName="telefono" placeholder="Telefono" />
+
+        <input type="email" formControlName="email" placeholder="Email" />
+
+        <input
+          type="password"
+          formControlName="password"    
+          placeholder="Password"
+        />
+
+        <button (click)="handleSubmit()" class="mt-5 ingresa">Registrar</button>
       </form>
     </div>
 

@@ -1,0 +1,370 @@
+img {
+  max-width: 100%;
+}
+
+[class*="__container"] {
+  max-width: 120rem;
+  margin: 0 auto;
+  width: 95%;
+}
+
+[class$="__heading"] {
+  font-size: 4rem;
+  text-align: center;
+  font-weight: 900;
+  color: orange;
+  margin: 5rem 0;
+}
+
+.header__guitarra {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .header__guitarra {
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    animation-name: mostrarImagen;
+    animation-duration: 1.3s;
+    animation-timing-function: ease-in-out;
+  }
+}
+
+@keyframes mostrarImagen {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.header__barra {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .header__barra {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.header__logo {
+  width: 30rem;
+}
+@media (min-width: 768px) {
+  .navegacion {
+    margin-top: 0;
+  }
+}
+.navegacion {
+  display: flex;
+  gap: 2rem;
+  margin-top: 5rem;
+  position: relative;
+  z-index: 1;
+}
+.navegacion__enlace {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+}
+
+.navegacion__enlace:hover {
+  background-color: orange;
+}
+
+.modelo {
+  color: white;
+  margin-top: 5rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .modelo {
+    text-align: left;
+    width: 50%;
+  }
+}
+
+.modelo__nombre {
+  font-size: 8rem;
+}
+
+.modelo__precio {
+  font-size: 6rem;
+  color: orange;
+  font-weight: 900;
+  line-height: 0;
+}
+
+.modelo__enlace {
+  margin-top: 2rem;
+  text-decoration: none;
+  padding: 1rem 5rem;
+  border: 2px solid orange;
+  color: white;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 900;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+}
+
+.modelo__enlace:hover {
+  background-color: orange;
+}
+
+.productos__grid {
+  display: grid;
+  gap: 4rem;
+}
+
+@media (min-width: 768px) {
+  .productos__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .productos__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.producto__formulario {
+  display: flex;
+  flex-direction: column;
+}
+
+.producto__label {
+  font-size: 2.2rem;
+  margin-right: 1rem;
+}
+
+.productoCantidad {
+  border: 2px solid orange;
+  padding: 1rem;
+  text-align: center;
+}
+.productoCantidad:focus-visible {
+  outline: 2px solid orange;
+}
+
+.producto__agregar-carrito {
+  margin-top: 6rem;
+  display: block;
+  background-color: orange;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: none;
+  text-align: center;
+  padding: 2rem 5rem;
+  color: white;
+  font-size: 1.8rem;
+  font-weight: 700;
+  transition: 0.3s all ease-in-out;
+}
+.producto__agregar-carrito:hover {
+  background-color: black;
+  cursor: pointer;
+}
+
+.producto {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  column-gap: 1rem;
+  align-items: center;
+  margin: 5rem;
+}
+
+.producto__nombre {
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+.producto__descripcion {
+  font-size: 1.6rem;
+}
+
+.producto__precio {
+  color: orange;
+  font-size: 6rem;
+  font-weight: 900;
+  margin: 0;
+}
+
+.producto__enlace,
+.entrada__enlace {
+  margin-top: 2rem;
+  display: block;
+  text-decoration: none;
+  color: black;
+  padding: 1rem 5rem;
+  border: 2px solid orange;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  transition-duration: 0.3s;
+}
+
+.producto__enlace:hover,
+.entrada__enlace:hover {
+  background-color: orange;
+  color: white;
+}
+
+.cursos__texto {
+  color: white;
+  text-align: center;
+  font-size: 2.4rem;
+}
+.cursos__enlace {
+  color: white;
+  margin-top: 2rem;
+  display: inline-block;
+  border: 2px solid orange;
+  text-decoration: none;
+  padding: 1rem 5rem;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: 700;
+  transition: 0.3s all ease-in-out;
+}
+.cursos__contenido {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cursos__enlace:hover {
+  background-color: orange;
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .cursos__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+  }
+  .cursos__contenido {
+    grid-column: 2/3;
+  }
+}
+
+.blog__grid {
+  display: grid;
+  gap: 4rem;
+}
+
+@media (min-width: 768px) {
+  .blog__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .blog__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .blog__grid--pagina {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.entrada {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.entrada__contenido {
+  padding: 2rem;
+}
+.entrada__titulo {
+  font-weight: 400;
+  font-size: 2.8rem;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.entrada__fecha {
+  font-size: 1.6rem;
+  color: orange;
+}
+.entrada__texto {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+}
+
+.footer {
+  margin-top: 5rem;
+  background-color: black;
+  padding: 5rem 0;
+}
+
+.footer__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .footer__nav {
+    flex-direction: row;
+    gap: 2rem;
+  }
+
+  .footer__contenido {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.footer__enlace {
+  font-size: 2.8rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+}
+.footer__enlace:hover {
+  color: orange;
+}
+
+.footer__copyright {
+  font-size: 2.8rem;
+  color: var(--blanco);
+  font-weight: 700;
+  text-align: center;
+}
+
+.nosotros__grid {
+  display: grid;
+  gap: 4rem;
+}
+@media (min-width: 768px) {
+  .nosotros__grid {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+}

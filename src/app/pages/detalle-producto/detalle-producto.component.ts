@@ -1,43 +1,38 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { CarritoService } from 'src/app/services/carrito/carrito.service';
 import { ProductosService } from 'src/app/services/productos.service';
-import { SnackbarService } from 'src/app/services/snackbard/snackbar.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-tienda',
-  templateUrl: './tienda.component.html',
-  styleUrls: ['./tienda.component.css'],
+  selector: 'app-detalle-producto',
+  templateUrl: './detalle-producto.component.html',
+  styleUrls: ['./detalle-producto.component.css'],
 })
-export class TiendaComponent {
-  productos: any;
+export class DetalleProductoComponent {
+  productoDetalle: any;
+
+  cantidadProducto: any = 1;
 
   constructor(
     private productoService: ProductosService,
-    private carritoService: CarritoService,
-    private snackbarService: SnackbarService,
-    private router: Router
+    private carritoService: CarritoService
   ) {
-    this.getProductos();
-  }
-
-  getProductos() {
-    this.productoService.getProductos().subscribe((response: any) => {
-      console.log(response);
-      this.productos = response;
-    });
-  }
-
-  detalleProducto(producto: any) {
-    this.productoService.productoSeleccionado = producto;
-    this.router.navigate(['/detalleProducto']);
+    this.productoDetalle = productoService.productoSeleccionado;
   }
 
   agregarAlCarrito(producto: any) {
     this.carritoService.agregarAlCarrito(producto);
 
     this.mostrarAlerta('Exitoso', 'Producto agregado al carrito');
+  }
+
+  actualizarCantidad(event: any) {
+    // Esta función se ejecutará cada vez que cambie la cantidad en el select
+    console.log(event.target.value);
+
+    this.cantidadProducto = event.target.value;
+
+    console.log('Nueva cantidad:', this.cantidadProducto);
   }
 
   mostrarAlerta(

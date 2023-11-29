@@ -1,0 +1,26 @@
+<div *ngIf="productoDetalle" class="producto" style="margin-top: 15rem">
+  <img
+    class="producto__imagen"
+    src="{{ productoDetalle.image }}"
+    alt="imagen guitarra"
+  />
+
+  <div class="producto__contenido">
+    <h3 class="producto__nombre">{{ productoDetalle.nombre }}</h3>
+    <p class="producto__descripcion">
+      {{ productoDetalle.descripcion }}
+    </p>
+
+    <p class="producto__precio">S/.{{ productoDetalle.precio }}</p>
+
+    <form class="producto__formulario">
+      <input
+        *ngIf="productoDetalle.estado == 'true'"
+        style="background-color: orange"
+        class="producto__agregar-carrito"
+        value="Agregar al Carrito"
+        (click)="agregarAlCarrito(productoDetalle)"
+      />
+    </form>
+  </div>
+</div>

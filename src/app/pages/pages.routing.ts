@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { PagesComponent } from './pages.component';
 import { TiendaComponent } from './tienda/tienda.component';
 import { CarritoComponent } from './carrito/carrito.component';
+import { DetalleProductoComponent } from './detalle-producto/detalle-producto.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
     children: [
       { path: 'tienda', component: TiendaComponent },
       { path: 'carrito', component: CarritoComponent },
+      { path: 'detalleProducto', component: DetalleProductoComponent },
 
       { path: '', redirectTo: '/tienda', pathMatch: 'full' },
     ],

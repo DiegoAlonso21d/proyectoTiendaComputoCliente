@@ -1,5 +1,5 @@
 <!--Navegation-->
-<nav class="nav">
+<nav class="nav" style="z-index: 10">
   <div class="nav__center container">
     <div class="nav__logo">
       <h1 routerLink="tienda">CPU <span>STORE</span></h1>
@@ -8,17 +8,17 @@
       <div class="carrito__icon">
         <a routerLink="carrito">
           <i class="bx bx-cart"></i>
-          <span class="item__total">0</span>
+          <span class="item__total">{{ cantidadCarrito() }}</span>
         </a>
       </div>
 
-      <div class="user_icon">
+      <div class="user_icon" *ngIf="!tokenDisponible">
         <a routerLink="login">
           <i class="fa-solid fa-user"></i>
         </a>
       </div>
 
-      <div class="exit_icon">
+      <div *ngIf="tokenDisponible" class="exit_icon" (click)="cerrarSesion()">
         <a routerLink="tienda">
           <i class="fa-solid fa-right-from-bracket"></i>
         </a>

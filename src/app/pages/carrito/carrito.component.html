@@ -1,26 +1,30 @@
 <section class="carroCompras">
-  <h1 class="text-center">Su Carrito</h1>
+  <h1 class="text-center">Carrito de compras</h1>
 
-  <div class="carrito__center">
-    <div class="carrito__item">
-      <img
-        src="https://cdn4.chrono24.com/images/topmodels/2875-7wlcl6ogfoc0qxg22ox6up9m-Original.png?auto=compress&amp;h=305"
-        alt="reloj"
-      />
+  <h1
+    *ngIf="carrito.length < 1"
+    style="text-align: center; margin-top: 5rem; color: gray"
+  >
+    Carrito de compras Vacio
+  </h1>
+
+  <div class="carrito__center" *ngIf="carrito.length > 0">
+    <div class="carrito__item" *ngFor="let carro of carrito">
+      <img src="{{ carro.image }}" alt="reloj" />
       <div>
-        <h3>Relojes Originales</h3>
-        <p class="price">$122</p>
+        <h3>{{ carro.nombre }}</h3>
+        <p class="price">S/. {{ carro.precio }}</p>
       </div>
       <div>
-        <span>
+        <span (click)="actualizarCantidad(carro, 1)">
           <i class="bx bxs-up-arrow"></i>
         </span>
-        <p>1</p>
-        <span>
+        <p>{{ carro.cantidad }}</p>
+        <span (click)="actualizarCantidad(carro, -1)">
           <i class="bx bxs-down-arrow"></i>
         </span>
       </div>
-      <div>
+      <div (click)="eliminarDelCarrito(carro)">
         <span class="remove__item">
           <i class="bx bx-trash"></i>
         </span>
@@ -29,7 +33,142 @@
   </div>
 
   <div class="carrito__footer">
-    <h3>Total: $ <span class="carrito__total">0</span></h3>
-    <button class="clear__carrito btn">remover carrito</button>
+    <h3 *ngIf="carrito.length > 0">
+      Total: S/. <span class="carrito__total">{{ total }}</span>
+    </h3>
+    <button
+      *ngIf="carrito.length > 0"
+      class="clear__carrito btn"
+      style="background-color: rgb(133, 3, 3)"
+      (click)="vaciarCarrito()"
+    >
+      remover carrito
+    </button>
+    <br />
+    <button
+      *ngIf="carrito.length > 0"
+      class="clear__carrito btn"
+      style="background-color: rgb(0, 88, 0)"
+      (click)="openDetalleModal(carrito)"
+    >
+      Realizar Compra
+    </button>
   </div>
 </section>
+
+<div class="container mt-4" style="padding-left: 70px; padding-top: 50px">
+  <!-- Modal Detalle -->
+  <div class="custom-modal" *ngIf="mostrarModal == true">
+    <div class="modal-content">
+      <h2>Realizar Compra</h2>
+
+      <div *ngIf="carrito.length > 0">
+        <form [formGroup]="manageOrderForm">
+          <div
+            style="
+              display: flex;
+              gap: 1rem;
+              justify-content: space-between;
+              margin: 1rem;
+            "
+          >
+            <div>
+              <label for="nombre">Nombres:</label>
+              <input
+                style="width: 120px"
+                type="text"
+                class="form-control"
+                id="nombre"
+                formControlName="nombre"
+              />
+            </div>
+            <div>
+              <label for="nombre">Telefono :</label>
+              <input
+                style="width: 120px"
+                type="text"
+                class="form-control"
+                id="nombre"
+                formControlName="telefono"
+              />
+            </div>
+            <div>
+              <div class="form-group mt-4">
+                <label for="metodoPago">Método de Pago</label>
+                <select
+                  style="width: 120px"
+                  class="form-control"
+                  id="metodoPago"
+                  formControlName="metodoPago"
+                >
+                  <option value="" disabled selected>
+                    Selecciona método de pago
+                  </option>
+                  <option value="TARJETA">TARJETA</option>
+                  <option value="EFECTIVO">EFECTIVO</option>
+                  <option value="YAPE">YAPE</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div
+            style="
+              display: flex;
+              gap: 1rem;
+              justify-content: space-between;
+              margin: 1rem;
+            "
+          >
+            <div>
+              <label for="nombre">Correo Electronico</label>
+              <input
+                style="width: 200px"
+                type="text"
+                class="form-control"
+                id="nombre"
+                formControlName="email"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <table id="nuevaTabla">
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Nombre</th>
+            <th>Categoria</th>
+            <th>Cantidad</th>
+            <th>Precio Unitario</th>
+            <th>Sub Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Itera sobre los elementos del detalle de la factura -->
+          <tr *ngFor="let carro of carrito">
+            <td>
+              <img style="width: 100px" src="{{ carro.image }}" alt="" />
+            </td>
+            <td>{{ carro.nombre }}</td>
+            <td>{{ carro.categoria_nombre }}</td>
+            <td>{{ carro.cantidad }}</td>
+            <td>{{ carro.precio }}</td>
+            <td>{{ carro.cantidad * carro.precio }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h4 *ngIf="total > 0" style="margin: 2rem">Total: {{ total }}</h4>
+      <button
+        class="modal-close-button"
+        style="background-color: green"
+        (click)="validateSubmit()"
+      >
+        Confirmar compra
+      </button>
+
+      <button class="modal-close-button" (click)="closeModal()">Cerrar</button>
+    </div>
+  </div>
+</div>

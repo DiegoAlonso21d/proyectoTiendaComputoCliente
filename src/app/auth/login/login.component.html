@@ -1,7 +1,7 @@
 <div class="fondoLogin">
   <div class="container" id="container">
     <div class="form-container sign-in-container">
-      <form action="#">
+      <form [formGroup]="loginForm">
         <h1>Ingresa</h1>
         <div class="social-container">
           <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -9,10 +9,14 @@
           <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
         </div>
         <span class="my-3">o usa tu cuenta</span>
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
+        <input type="email" placeholder="Email" formControlName="email" />
+        <input
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+        />
 
-        <button class="mt-5 ingresa" routerLink="/tienda">Ingresa</button>
+        <button class="mt-5 ingresa" (click)="handleSubmit()">Ingresa</button>
       </form>
     </div>
 
